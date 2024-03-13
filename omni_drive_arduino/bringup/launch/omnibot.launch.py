@@ -54,14 +54,6 @@ def generate_launch_description():
         output="both",
     )
 
-    rviz_node = Node(
-        package="rviz2",
-        executable="rviz2",
-        name="rviz2",
-        output="log",
-        arguments=["-d", rviz_config_file],
-    )
-
     robot_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
@@ -76,7 +68,6 @@ def generate_launch_description():
     nodes = [
         robot_state_publisher_node,
         joint_state_publisher_node,
-        rviz_node,
         control_node,
         robot_controller_spawner,
     ]
