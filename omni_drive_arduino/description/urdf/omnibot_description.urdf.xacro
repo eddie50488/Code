@@ -21,14 +21,14 @@
 
   <link name="base_link">
     <visual>
-      <origin xyz="0.0 -0.0 -0.098" rpy="0 0 0"/>
+      <origin xyz="0.0 -0.0 0.098" rpy="0 0 0"/>
       <geometry>
         <mesh filename="file://$(find omni_drive_arduino)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="black"/>
     </visual>
     <collision>
-      <origin xyz="0.0 -0.0 -0.098" rpy="0 0 0"/>
+      <origin xyz="0.0 -0.0 0.098" rpy="0 0 0"/>
       <geometry>
         <mesh filename="file://$(find omni_drive_arduino)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
       </geometry>
