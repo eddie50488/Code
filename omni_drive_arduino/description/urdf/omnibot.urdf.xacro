@@ -4,13 +4,13 @@
   <xacro:arg name="prefix" default="" />
 
   <!-- Import urdf description -->
-  <xacro:include filename="$(find omni_drive_arduino)/urdf/diffbot_description.urdf.xacro" />
+  <xacro:include filename="$(find omni_drive_arduino)/urdf/omnibot_description.urdf.xacro" />
 
   <!-- Import Rviz colors -->
-  <xacro:include filename="$(find omni_drive_arduino)/urdf/diffbot.materials.xacro" />
+  <xacro:include filename="$(find omni_drive_arduino)/urdf/omnibot.materials.xacro" />
 
-  <!-- Import diffbot ros2_control description -->
-  <xacro:include filename="$(find omni_drive_arduino)/ros2_control/diffbot.ros2_control.xacro" />
+  <!-- Import omnibot ros2_control description -->
+  <xacro:include filename="$(find omni_drive_arduino)/ros2_control/omnibot.ros2_control.xacro" />
 
   <xacro:omnibot prefix="$(arg prefix)" />
 
