@@ -35,7 +35,6 @@
     </collision>
   </link>
 
-
   <link name="wheel_4_1">
     <inertial>
       <origin xyz="0.012500286602236538 -3.4638958368304883e-15 -9.020562075079397e-16" rpy="0 0 0"/>
