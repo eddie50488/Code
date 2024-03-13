@@ -19,7 +19,7 @@
     </collision>
   </link>
 
-  <link name="laser">
+  <link name="base_link">
     <visual>
       <origin xyz="0.0 -0.0 -0.098" rpy="0 0 0"/>
       <geometry>
