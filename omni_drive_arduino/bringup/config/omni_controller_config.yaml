@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 10
+    update_rate: 20
 
     omnidirectional_controller:
       type: omni_drive_controller/OmniDriveController 
@@ -12,7 +12,7 @@ omnidirectional_controller:
       - second_wheel_joint
       - third_wheel_joint
       - fourth_wheel_joint
-    cmd_vel_timeout: 0.2
-    use_stamped_vel: true
+    cmd_vel_timeout: 0.1
+    use_stamped_vel: false
 
 
