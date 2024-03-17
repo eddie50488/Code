@@ -34,7 +34,7 @@ namespace omni_drive_arduino // same as folder name
 
     for (const hardware_interface::ComponentInfo &joint : info_.joints)
     {
-      // OmniBotSystem has one state interface on each joint
+      // Our robot has one state interface for each wheel
       if (joint.command_interfaces.size() != 1)
       {
         RCLCPP_FATAL(
@@ -53,7 +53,7 @@ namespace omni_drive_arduino // same as folder name
         return hardware_interface::CallbackReturn::ERROR;
       }
 
-      // OmniBotSystem has one command interface on each joint
+      // Our robot has one state interface for each wheel
       if (joint.state_interfaces.size() != 1)
       {
         RCLCPP_FATAL(
@@ -128,7 +128,6 @@ namespace omni_drive_arduino // same as folder name
     {
       return hardware_interface::return_type::ERROR;
     }
-    // Do nothing
     return hardware_interface::return_type::OK;
   }
 

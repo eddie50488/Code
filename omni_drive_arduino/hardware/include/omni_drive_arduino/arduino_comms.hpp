@@ -59,6 +59,7 @@ public:
     return serial_conn_.IsOpen();
   }
 
+  // void send_msg(const std::string &msg_to_send, bool print_output = true)
   std::string send_msg(const std::string &msg_to_send, bool print_output = true)
   {
     // serial_conn_.FlushIOBuffers(); // Just in case
@@ -67,8 +68,10 @@ public:
     try
     {
       // Responses end with \r\n so we will read up to (and including) the \n.
-      serial_conn_.ReadLine(response, '\n', timeout_ms_);
+      // serial_conn_.ReadLine(response, '\n', timeout_ms_);
+      serial_conn_.Read(response, 8, timeout_ms_);
     }
+    
     catch (const LibSerial::ReadTimeout &)
     {
       std::cerr << "The ReadByte() call has timed out." << std::endl;
@@ -77,6 +80,11 @@ public:
     if (print_output)
     {
       std::cout << "Sent: " << msg_to_send << std::endl;
+    }
+
+    if (response != "")
+    {
+      std::cout << "Recived: " << response << std::endl;
     }
 
     return response;
@@ -92,7 +100,7 @@ public:
   void set_motor_values(int val_1, int val_2, int val_3, int val_4)
   {
     std::stringstream ss;
-    ss << val_1 << " " << val_2 << " " << val_3 << " " << val_4 << "\n";
+    ss << "1" << " " << val_1 << " " << val_2 << " " << val_3 << " " << val_4 << " " << "150" <<"\n";
     send_msg(ss.str());
   }
 
