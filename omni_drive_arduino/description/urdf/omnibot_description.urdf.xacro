@@ -3,6 +3,22 @@
 
   <xacro:macro name="omnibot" params="prefix">
 
+  <link name="base_link">
+    <visual>
+      <origin xyz="0.0 0.0 -0.098" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find omni_drive_arduino)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 -0.098" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find omni_drive_arduino)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
   <link name="base_footprint">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -19,37 +35,21 @@
     </collision>
   </link>
 
-  <link name="base_link">
-    <visual>
-      <origin xyz="0.0 -0.0 0.098" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="file://$(find omni_drive_arduino)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-      <material name="black"/>
-    </visual>
-    <collision>
-      <origin xyz="0.0 -0.0 0.098" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="file://$(find omni_drive_arduino)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-    </collision>
-  </link>
-
   <link name="wheel_4_1">
     <inertial>
       <origin xyz="0.012500286602236538 -3.4638958368304883e-15 -9.020562075079397e-16" rpy="0 0 0"/>
       <mass value="0.4662565284394167"/>
-      <inertia ixx="0.000176" iyy="0.000112" izz="0.000112" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+      <inertia ixx="0.000176" iyy="0.000112" izz="0.000112" ixy="0.0" iyz="0.0" ixz="0.0"/>
     </inertial>
     <visual>
-      <origin xyz="-0.114405 -0.0 -0.0275" rpy="0 0 0"/>
+      <origin xyz="-0.114405 0.0 -0.0275" rpy="0 0 0"/>
       <geometry>
         <mesh filename="file://$(find omni_drive_arduino)/meshes/wheel_4_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
-      <origin xyz="-0.114405 -0.0 -0.0275" rpy="0 0 0"/>
+      <origin xyz="-0.114405 0.0 -0.0275" rpy="0 0 0"/>
       <geometry>
         <mesh filename="file://$(find omni_drive_arduino)/meshes/wheel_4_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -60,7 +60,7 @@
     <inertial>
       <origin xyz="-2.3335371163391016e-07 0.012499547092654287 4.3680337125096e-15" rpy="0 0 0"/>
       <mass value="0.46625652843941706"/>
-      <inertia ixx="0.000112" iyy="0.000176" izz="0.000112" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+      <inertia ixx="0.000112" iyy="0.000176" izz="0.000112" ixy="0.0" iyz="0.0" ixz="0.0"/>
     </inertial>
     <visual>
       <origin xyz="0.0 -0.114406 -0.0275" rpy="0 0 0"/>
@@ -81,17 +81,17 @@
     <inertial>
       <origin xyz="-0.01249956825173544 3.728177829565027e-08 4.413136522884997e-15" rpy="0 0 0"/>
       <mass value="0.4662565284394172"/>
-      <inertia ixx="0.000176" iyy="0.000112" izz="0.000112" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+      <inertia ixx="0.000176" iyy="0.000112" izz="0.000112" ixy="0.0" iyz="0.0" ixz="0.0"/>
     </inertial>
     <visual>
-      <origin xyz="0.114406 -0.0 -0.0275" rpy="0 0 0"/>
+      <origin xyz="0.114406 0.0 -0.0275" rpy="0 0 0"/>
       <geometry>
         <mesh filename="file://$(find omni_drive_arduino)/meshes/wheel_2_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="silver"/>
     </visual>
     <collision>
-      <origin xyz="0.114406 -0.0 -0.0275" rpy="0 0 0"/>
+      <origin xyz="0.114406 0.0 -0.0275" rpy="0 0 0"/>
       <geometry>
         <mesh filename="file://$(find omni_drive_arduino)/meshes/wheel_2_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -102,7 +102,7 @@
     <inertial>
       <origin xyz="-3.723932087140724e-08 -0.012500343941844794 4.760081218080359e-15" rpy="0 0 0"/>
       <mass value="0.466256528439417"/>
-      <inertia ixx="0.000112" iyy="0.000176" izz="0.000112" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+      <inertia ixx="0.000112" iyy="0.000176" izz="0.000112" ixy="0.0" iyz="0.0" ixz="0.0"/>
     </inertial>
     <visual>
       <origin xyz="0.0 0.114405 -0.0275" rpy="0 0 0"/>
@@ -120,7 +120,7 @@
   </link>
 
   <joint name="joint_5" type="fixed">
-    <origin xyz="0.0 0.0 0.098" rpy="0 0 0"/>
+    <origin xyz="0.0 0.0 -0.098" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="base_footprint"/>
   </joint>
@@ -129,7 +129,7 @@
     <origin xyz="0.114405 0.0 0.0275" rpy="0 0 0"/>
     <parent link="base_footprint"/>
     <child link="wheel_4_1"/>
-    <axis xyz="-1.0 0.0 -0.0"/>
+    <axis xyz="-1.0 0.0 0.0"/>
   </joint>
 
   <joint name="joint_3" type="continuous">
@@ -143,14 +143,14 @@
     <origin xyz="-0.114406 0.0 0.0275" rpy="0 0 0"/>
     <parent link="base_footprint"/>
     <child link="wheel_2_1"/>
-    <axis xyz="1.0 -0.0 -0.0"/>
+    <axis xyz="1.0 0.0 0.0"/>
   </joint>
 
   <joint name="joint_1" type="continuous">
     <origin xyz="0.0 -0.114405 0.0275" rpy="0 0 0"/>
     <parent link="base_footprint"/>
     <child link="wheel_1_1"/>
-    <axis xyz="-0.0 1.0 -0.0"/>
+    <axis xyz="0.0 1.0 0.0"/>
   </joint>
 
   </xacro:macro>
